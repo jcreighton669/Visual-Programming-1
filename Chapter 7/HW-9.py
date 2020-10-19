@@ -13,6 +13,8 @@ def read_file(filename):
     for line in fn:
         annual_population.append(int(line))
 
+    fn.close()
+
     return annual_population
 
 
