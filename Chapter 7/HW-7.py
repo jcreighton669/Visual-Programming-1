@@ -17,23 +17,28 @@ questions, the total number of incorrectly answered questions, and a list
 showing the question numbers of the incorrectly answered questions.
 """
 
+# Initialize the correct answers in a list
 ANSWERS = ['A', 'C', 'A', 'A', 'D', 'B', 'C', 'A', 'C',
            'B', 'A', 'D', 'C', 'A', 'D', 'C', 'B', 'B', 'D', 'A']
 
 
+# Read in the file and add the student's answers to a list
 def read_file(filename):
     student_answers = []
     fn = open(filename, 'r')
     line = fn.readline()
     while line != '':
+        # Make sure that the student answer is capitalized and a single character
         student_answers.append(str(line[0]).upper())
         line = fn.readline()
 
+    # Close the file after getting the information
     fn.close()
     print(student_answers)
     return student_answers
 
 
+# Compare the student answers with the correct answers
 def compare_answers(student_arr):
     correct_answers = ANSWERS
     correct_count = 0
@@ -41,9 +46,11 @@ def compare_answers(student_arr):
         if correct_answers[i] == student_arr[i]:
             correct_count += 1
 
+    # Return the number of correct answers
     return correct_count
 
 
+# Get the users information and run the functions
 def main():
     student_file = input("Enter the filename path of the student answers: ")
 
@@ -61,4 +68,5 @@ def main():
         print("The student has failed.")
 
 
+# Call the main function
 main()

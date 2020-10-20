@@ -7,17 +7,35 @@ is invalid.
 """
 
 
+# Read in the file and add the numbers to a list
 def read_file():
     charge_account = []
     fn = open("charge_accounts.txt", 'r')
     for line in fn:
         charge_account.append(int(line))
 
+    # Close the file after getting the information
     fn.close()
 
+    # Return the list of account numbers
     return charge_account
 
 
 def main():
     check_account = int(input("Enter the account number you wish to check: "))
     accounts = read_file()
+    flag = False
+
+    # Check if the input account is in the list of charge accounts.
+    for i in range(len(accounts)):
+        if accounts[i] == check_account:
+            flag = True
+
+    if flag == True:
+        print(check_account, "is a valid account.")
+    else:
+        print("This is an invalid account.")
+
+
+# Call the main function
+main()

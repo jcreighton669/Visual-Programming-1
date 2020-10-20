@@ -6,9 +6,11 @@ total sales for the week and display the result.
 
 
 def main():
+    # Initialize a list for sales amounts
     weekly_sales = []
     total_sales = 0
     for i in range(7):
+        # Get the sales amounts from the user and add it to the list
         daily_sales = float(input("Enter the daily sales: "))
         weekly_sales.append(daily_sales)
 
@@ -18,4 +20,5 @@ def main():
     print("The total sales for the week was $", total_sales)
 
 
+# Call the main function
 main()
