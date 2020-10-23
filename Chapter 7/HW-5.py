@@ -34,7 +34,7 @@ def main():
     if flag == True:
         print(check_account, "is a valid account.")
     else:
-        print("This is an invalid account.")
+        print(check_account, "is an invalid account.")
 
 
 # Call the main function

@@ -1,9 +1,7 @@
-"""
-Design a program that lets the user enter the total rainfall for each of 12
-months into a list. The program should calculate and display the total rainfall
-for the year, the average monthly rainfall, the months with the highest and
-lowest amounts.
-"""
+""" Design a program that lets the user enter the total rainfall for
+each of 12 months into a list. The program should calculate and display
+the total rainfall for the year, the average monthly rainfall, the
+months with the highest and lowest amounts. """
 
 
 def main():
@@ -12,8 +10,11 @@ def main():
 
     # Get the monthly rainfall from the user
     for i in range(12):
-        rain_in_month = float(input("Enter the rainfall for the month: "))
-        monthly_rainfall.append(rain_in_month)
+        try:
+            rain_in_month = float(input("Enter the rainfall for the month: "))
+            monthly_rainfall.append(rain_in_month)
+        except ValueError as e:
+            print(e)
 
     # Call the functions for the rainiest, driest, and total rainfall
     rainiest_month = most_rainfall_month(monthly_rainfall)
@@ -30,11 +31,12 @@ def main():
 def most_rainfall_month(arr):
     max_rainfall = max(arr)
     month = 0
+    num = 0
     for num in arr:
         if num == max_rainfall:
             month = arr.index(max_rainfall) + 1
 
-    get_month(month)
+    return get_month(month)
 
 
 # Get the month that had the least rainfall
@@ -45,7 +47,7 @@ def least_rainfall_month(arr):
         if num == min_rainfall:
             month = arr.index(min_rainfall) + 1
 
-    get_month(month)
+    return get_month(month)
 
 
 # Get the total rainfall for the year
@@ -54,6 +56,7 @@ def total_rainfall(arr):
     for num in arr:
         rain += num
 
+    rain = format(rain, '.2f')
     return rain
 
 

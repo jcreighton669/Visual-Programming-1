@@ -10,9 +10,12 @@ def main():
     weekly_sales = []
     total_sales = 0
     for i in range(7):
-        # Get the sales amounts from the user and add it to the list
-        daily_sales = float(input("Enter the daily sales: "))
-        weekly_sales.append(daily_sales)
+        try:
+            # Get the sales amounts from the user and add it to the list
+            daily_sales = float(input("Enter the daily sales: "))
+            weekly_sales.append(daily_sales)
+        except ValueError as e:
+            print(e)
 
     for num in weekly_sales:
         total_sales += num
